@@ -1,0 +1,41 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+main{
+    width: 300px;
+    padding: 2rem;    
+    font-size: 48px;
+    background-color: rgba(0, 0, 0, 0.822);
+    border-radius: 6px;
+}
+
+.main__display-crono{
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.main__btns{
+    font-size: 48px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.main__btn{
+    width: 80px;
+    border-radius: 0.3rem;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.color-btn-1{
+    background-color: rgb(126, 226, 59);
+}
+
+.color-btn-3{
+    background-color: rgb(235, 57, 57) ;
+}
