@@ -12,28 +12,51 @@ let secondsTime = 0;
 let minutesTime = 0;
 
 const countingTime =  setInterval(() => { 
-if(countingBoolean){
-    console.log(++millisecondsTime);
-    milliseconds.textContent = String(millisecondsTime);
-    if(millisecondsTime == 999){
-        millisecondsTime = 0;
-        ++secondsTime;
-        seconds.textContent = String(secondsTime);
-    }
-    if(secondsTime == 59){
-        secondsTime == 0;
-        ++minutesTime;
-        minutes.textContent = millisecondsTime; 
-    }
-}},0.001);
+    if(countingBoolean){
+        ++millisecondsTime;
+        milliseconds.textContent = formatMilliseconds();
+        if(millisecondsTime == 99){
+            millisecondsTime = 0;
+            ++secondsTime;
+            seconds.textContent = formatSeconds();
+        }
+        if(secondsTime == 59){
+            secondsTime = 0;
+            ++minutesTime;
+            minutes.textContent = formatMinutes(); 
+        }
+}},10);
 
-console.log('parou')
+
+const formatMilliseconds = () => {
+    if(millisecondsTime < 10)
+        return '00'+ String(millisecondsTime);
+    else
+        return String(millisecondsTime);
+}
+
+const formatSeconds = () => {
+    if(secondsTime < 10)
+        return '0' + String(secondsTime);
+    else
+        return String(secondsTime);
+}
+
+const formatMinutes = () => {
+    if(minutesTime < 10)
+    return '0' + String(minutesTime);
+else
+    return String(minutesTime);
+
+}
+
+
 
 btnStart.addEventListener("click", () => countingBoolean = true);
 btnPause.addEventListener("click", () => {countingBoolean = false});
 btnReset.addEventListener("click",()=>{
     countingBoolean = false
-    milliseconds.textContent = '000';
+    milliseconds.textContent = '00';
     seconds.textContent = '00';
     minutes.textContent = '00';
 
